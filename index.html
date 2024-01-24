@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main" id="newpost">
+        <img  class="camera-bg" style="width: 100%; height:80%; background-attachment: fixed;" id="bg" class="center" src="{{ url_for('video_feed') }}">
+        <!--<img  class="camera-bg" style="width: 100%; height:80%; background-attachment: fixed;" id="bg" class="center" src="https://www.psdbox.com/wp-content/uploads/2011/01/security-camera-photoshop-effect.jpg">-->
+      
+      </div>
+    <div class="button__container container grid">
+        
+        <button calss="up">Up</button>
+        <div>
+            <button id="left">Left</button>
+            
+            <button id="right">Right</button>
+        </div>
+        
+        <button id="down">Down</button>
+
+        <button id="stop">Stop</button>
+    </div>
+
+    <div id="carSelection">
+        <label for="car1">Car 1</label>
+        <input type="radio" id="car1" name="car" value="Car 1"><br>
+        <label for="car2">Car 2</label>
+        <input type="radio" id="car2" name="car" value="Car 2"><br>
+        <label for="car3">Car 3</label>
+        <input type="radio" id="car3" name="car" value="Car 3"><br>
+        <label for="allCars">All Cars</label>
+        <input type="radio" id="allCars" name="car" value="All Cars">
+    </div>
+    
+    <div id="ultrasonicValues">
+        <div class="image">
+            <img class="img" src="robot.png" alt="Robot">
+        </div>
+        <div id="topValue" class="topValue">Top Value</div>
+        
+        <div id="leftValue1" class="leftValue1">Left 1</div>
+        <div id="leftValue2" class="leftValue2">Left 2</div>
+        <div id="leftValue3" class="leftValue3">Left 3</div>
+
+        <div id="rightValue1" class="rightValue1">Right 1</div>
+        <div id="rightValue2" class="rightValue2">Right 2</div>
+        <div id="rightValue3" class="rightValue3">Right 3</div>
+            
+        
+        <div id="bottomValue" class="bottomValue">Bottom Value</div>
+    </div>  
+    <div class="Camera">
+        <input type="range" id="degree" name="degree" class="degree" min="0" max="180" />
+        <p> Camera Degree : <output id="value"></output></p>
+    </div>
+    
+    <div class="sensor">
+        <p >
+          Gas Reading : <label id="gas"></label>
+        </p>
+    </div>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</body>
+<script src="/Project/main.js"></script>
+</html>

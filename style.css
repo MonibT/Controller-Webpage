@@ -1,0 +1,208 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Staatliches&family=Work+Sans:ital,wght@1,300&display=swap');
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3.5rem;
+
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --title-color: hsla(0, 0%, 85%, 1);
+  --dark-color: hsl(0, 0%, 21%, 1);
+  --greenDark-color: hsl(98, 28%, 15%);
+  --text-color-light: hsl(0, 0%, 60%);
+  --body-color: hsl(0, 0%, 0%);
+  --container-color: hsl(0, 0%, 8%);
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: 'Staatliches', sans-serif;
+  --second-font: 'Work Sans', sans-serif;
+  --third-font: 'Inter', sans-serif;
+  --biggest-font-size: 3.75rem;
+  --h1-font-size: 2rem;
+  --h2-font-size: 1.5rem;
+  --h3-font-size: 1.25rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+  --smaller-font-size: .75rem;
+
+  /*========== Font weight ==========*/
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semi-bold: 600;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  height: 100%;
+  background-color: transparent;
+}
+
+/*=============== Control buttons ===============*/
+
+.button__container{   
+  z-index:10;
+  right: 3rem;
+  bottom: 1rem;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+button{
+  cursor:pointer;
+  z-index:10;
+  width: 60px;
+  height: 60px;
+  margin: 5px;
+  font-family: var(--third-font);
+  font-size: var(--normal-font-size);
+  color: var(--title-color);
+  background: linear-gradient(45deg, rgba(53,53,53,1) 0%, rgba(40,75,99,1) 93%);
+  border-radius: 10px ;
+}
+#left{
+  margin-right: 30px;
+}
+#right{
+  margin-left: 30px;
+}
+#stop{
+  width: 130px;
+  height: 40px;
+  margin: 20px;
+  background: rgb(119, 19, 19);
+}
+
+/*=============== car Selection ===============*/
+
+#carSelection{
+  margin: 1rem;
+  color: var(--dark-color);
+  font: var(--third-font);
+  font-weight: var(--font-semi-bold);
+  scale: 1.5;
+  position: fixed;
+  right: 17rem;
+  bottom: 7rem;
+  text-align: right;
+}
+
+/*=============== Camera angle ===============*/
+
+.Camera{
+  scale: 1.2;
+  right: 3rem;
+  bottom: 23rem;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.Camera p{
+  color: var(--dark-color);
+  font: var(--third-font);
+  font-weight: var(--font-semi-bold);
+}
+.degree{
+  cursor:pointer;
+  width: 12rem;
+
+}
+
+/*=============== Sensonr ===============*/
+
+.sensor{
+  scale: 1.5;
+  right: 7rem;
+  bottom: 28rem;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--dark-color);
+  font: var(--third-font);
+  font-weight: var(--font-semi-bold); 
+}
+
+/*=============== ultrasonic values ===============*/
+
+#ultrasonicValues{
+  z-index:-10;
+  opacity: 0.5;
+}
+.image{
+  scale: 0.6;
+  display: flex;
+  align-items: center;
+  left: 4rem;
+  bottom: 2rem;
+  position: fixed;
+}
+.topValue,
+.bottomValue,
+.leftValue1,
+.leftValue2,
+.leftValue3,
+.rightValue1,
+.rightValue2,
+.rightValue3{
+  scale: 1.2;
+  position: fixed;
+  align-items: center;
+  color: var(--dark-color);
+  font: var(--third-font);
+  font-weight: var(--font-semi-bold); 
+}
+.topValue{
+  left: 7rem;
+  bottom: 40rem;
+}
+.bottomValue{
+  
+  left: 7rem;
+  bottom: 10rem;
+  
+}
+.leftValue1{
+  left: 2rem;
+  bottom: 37rem;
+}
+.leftValue2{
+  left: 2rem;
+  bottom: 26rem; 
+}
+.leftValue3{
+  left: 2rem;
+  bottom: 15rem;
+}
+.rightValue1{
+  left: 14rem;
+  bottom: 37rem;
+}
+.rightValue2{
+  left: 14rem;
+  bottom: 26rem; 
+}
+.rightValue3{
+  left: 14rem;
+  bottom: 15rem;
+}
+
+
