@@ -1,46 +1,42 @@
-
+// Selecting the HTML elements for value and degree
 const value = document.querySelector("#value");
 const input = document.querySelector("#degree");
-var deg = 0;
 
+// Initializing degree and last camera degree variables
+var deg = 0;
 var lastCamDegree = 90;
 
-var timer ;
-
+// Setting the text content of the value element to the input value
 value.textContent = input.value;
 
+// Adding an event listener to the input element to change the camera degree when the input value changes
 input.addEventListener("input", (event) => {
     value.textContent = event.target.value;
     changeCamDegree(event.target.value);
 });
 
-
+// Function to move the car in a specified direction
 function move(direction) {
     // Get the selected car
-    var carSelection = document.querySelector('input[name="car"]:checked').value;
+    const carSelection = document.querySelector('input[name="car"]:checked').value;
 
     // Send the selected car and direction to the server
-    fetch('/move?car=' + carSelection + '&direction=' + direction)
+    fetch(`/move?car=${carSelection}&direction=${direction}`)
     .then(response => response.json())
     .then(data => console.log(data));
 }
 
-document.getElementById('up').addEventListener('click', function() {
-    move('up');
+// Array of directions
+const directions = ['up', 'down', 'left', 'right'];
+
+// Adding click event listeners to the direction buttons
+directions.forEach(direction => {
+    document.getElementById(direction).addEventListener('click', function() {
+        move(direction);
+    });
 });
 
-document.getElementById('down').addEventListener('click', function() {
-    move('down');
-});
-
-document.getElementById('left').addEventListener('click', function() {
-    move('left');
-});
-
-document.getElementById('right').addEventListener('click', function() {
-    move('right');
-});
-
+// Adding keydown event listener to the window to move the car with arrow keys
 window.addEventListener('keydown', function(event) {
     switch (event.key) {
         case 'ArrowUp':
@@ -58,28 +54,30 @@ window.addEventListener('keydown', function(event) {
     }
 });
 
+// Function to change the camera degree
 function changeCamDegree(value) {
-
+    // If the change in camera degree is at least 10
     if((lastCamDegree - value ) >= 10 ||(lastCamDegree - value ) <= -10){
         var http = new XMLHttpRequest();
 
+        // Send the new camera degree to the server
         http.open('POST', "/camdegree", true);
-    
         http.setRequestHeader('camdegree', 'camdegree');
-    
         var data = `${value}`;
-    
         http.send(data);
 
+        // Update the last camera degree
         lastCamDegree = value ;
     }
 }
 
+// Function to read the gas sensor data
 function readGasSensor() {
     var http = new XMLHttpRequest();
     http.open('GET', "/gas", true);
     http.send();
 
+    // Fetch the gas sensor data from the server and update the 'gas' element on the webpage
     fetch('/gas')
         .then(response => {
             if (!response.ok) {
@@ -95,11 +93,11 @@ function readGasSensor() {
         });
 }
 
-// Fetch sensor data from the server
+// Fetch ultrasonic sensor data from the server
 fetch('/sensorData')
 .then(response => response.json())
 .then(data => {
-    // Update the webpage with the sensor data
+    // Update the webpage with the ultrasonic sensor data
     document.getElementById('topValue').textContent =  data.top;
     document.getElementById('leftValue1').textContent = data.left1;
     document.getElementById('leftValue2').textContent = data.left2;
